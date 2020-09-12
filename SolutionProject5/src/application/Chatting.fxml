@@ -20,12 +20,13 @@
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<Button layoutX="90.0" layoutY="274.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="120.0" text="Login" />
-		<Button fx:id="exitButton" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="120.0" text="Exit" onAction="#exitButtonAction"/>
+		<Button fx:id="loginButton" layoutX="90.0" layoutY="274.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="15.0" prefWidth="120.0" text="Login" />
+		<Button fx:id="exitButton" layoutX="90.0" layoutY="304.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="15.0" prefWidth="120.0" text="Exit" />
 		<Label layoutX="91.0" layoutY="55.0" text="WHO?" textAlignment="CENTER">
 			<font>
 				<Font size="42.0" />
 			</font>
 		</Label>
+      <Label layoutX="108.0" layoutY="364.0" text="Need account?" />
 	</children>
 </AnchorPane>
