@@ -19,6 +19,7 @@ public class OpenChatRoom {
 			Scene scene = new Scene(home);
 			homeStage.setTitle("Ã¤ÆÃ¹æ");
 			homeStage.setScene(scene);
+			homeStage.setResizable(false);
 			homeStage.show();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
