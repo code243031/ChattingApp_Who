@@ -20,18 +20,18 @@
       <Label alignment="CENTER" prefHeight="44.0" prefWidth="250.0" text="ID" />
       <TextField />
       <Label alignment="CENTER" prefHeight="44.0" prefWidth="396.0" text="Password" />
-      <TextField />
-      <Button fx:id="loginButton" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Login">
+      <PasswordField />
+      <Button fx:id="loginBtn" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Login">
          <VBox.margin>
             <Insets top="50.0" />
          </VBox.margin>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Need account?" textAlignment="CENTER">
+      <Button fx:id = "accountBtn" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Need account?" textAlignment="CENTER">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="exitButton" cancelButton="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Exit">
+      <Button fx:id="exitBtn" cancelButton="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="202.0" text="Exit">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
