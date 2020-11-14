@@ -1,30 +1,27 @@
 package controller;
 
-import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
 import application.OpenChatRoom;
+import background.Listener;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class LoginScreenController implements Initializable {
 	@FXML private Button exitBtn;
 	@FXML private Button loginBtn;
 	@FXML private Button accountBtn;
+	@FXML private TextField id;
+	@FXML private PasswordField pw;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -36,10 +33,22 @@ public class LoginScreenController implements Initializable {
 	public void exitButtonAction(ActionEvent e) {
 		Platform.exit();
 	}
-	public void loginButtonAction(ActionEvent e) {
-		OpenChatRoom open = new OpenChatRoom();	
+	public void loginButtonAction(ActionEvent e)
+	{
+		if(id.getText().equals("root")) {
+			
+			
+			
+			OpenChatRoom open = new OpenChatRoom();	
+		}
+		else {
+			System.out.println("그런 회원 없음");
+		}
+		//Listener conn = new Listener();
+		
 	}
 	public void accountButtonAction(ActionEvent e) {
+
 		Main.getLogin().account();
 	}
 }

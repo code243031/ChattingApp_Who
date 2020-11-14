@@ -52,4 +52,7 @@ public class Login { // 로그인 창 생성
 		}
 	}
 
+	public void loginFailed() {
+		
+	}
 }

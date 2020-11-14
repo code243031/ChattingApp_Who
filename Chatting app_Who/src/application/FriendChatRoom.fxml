@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="700.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox prefHeight="700.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Label" />
-      <TextArea prefHeight="200.0" prefWidth="200.0" />
+      <TextArea prefHeight="552.0" prefWidth="370.0">
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </VBox.margin></TextArea>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField />
-            <Button mnemonicParsing="false" text="Button" />
+            <TextField prefHeight="22.0" prefWidth="222.0">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin></TextField>
+            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="172.0" text="Button">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
    </children>
