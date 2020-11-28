@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="800.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountController">
+<VBox minHeight="800.0" minWidth="650.0" prefHeight="800.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountController">
    <children>
-      <Label text="회원 상태 설정" textAlignment="CENTER">
+      <Label text="회원 가입" textAlignment="CENTER" underline="true">
          <VBox.margin>
             <Insets bottom="15.0" right="15.0" top="15.0" />
          </VBox.margin>
@@ -18,68 +18,102 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+      <Separator prefHeight="50.0" prefWidth="550.0" />
+      <HBox prefHeight="0.0" prefWidth="550.0">
          <children>
-            <RadioButton fx:id="mode_guest" mnemonicParsing="false" selected="true" text="게스트 모드">
+            <Label minHeight="44.0" minWidth="136.0" text="ID">
                <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="accountID" prefHeight="44.0" prefWidth="225.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="chkEquals" mnemonicParsing="false" text="Button">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="550.0">
+         <children>
+            <Label minHeight="44.0" minWidth="136.0" text="Password">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="accountPW" prefHeight="44.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="550.0">
+         <children>
+            <Label minHeight="44.0" minWidth="136.0" text="Pw again">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="PwAgain" prefHeight="44.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Label fx:id="PwEquals" />
+      <HBox prefHeight="0.0" prefWidth="550.0">
+         <children>
+            <Label minHeight="44.0" minWidth="136.0" text="이름(닉네임)">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="accountName" prefHeight="44.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Separator prefHeight="50.0" prefWidth="550.0" />
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="회원가입을 통해 만들어지는 계정은 실제 정보를 입력하지 않으셔도 됩니다.&#10;(가입 약관 같은거 적는 공간 만들기 위해 놓은 위젯입니다.)" wrapText="true" />
+      <HBox prefHeight="0.0" prefWidth="550.0">
+         <children>
+            <RadioButton fx:id="agree" mnemonicParsing="false" text="동의">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </HBox.margin>
                <toggleGroup>
-                  <ToggleGroup fx:id="select_mode" />
+                  <ToggleGroup fx:id="isAgree" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="mode_member" mnemonicParsing="false" text="회원 모드" toggleGroup="$select_mode">
+            <RadioButton fx:id="disagree" mnemonicParsing="false" selected="true" text="동의하지 않음" toggleGroup="$isAgree">
                <HBox.margin>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </HBox.margin>
             </RadioButton>
          </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets left="50.0" right="50.0" />
-         </padding>
       </HBox>
-      <TextArea editable="false" prefHeight="155.0" prefWidth="600.0" text="닉네임과 간단한 정보만 입력해서 로그인합니다. 친구 기능을 사용할 수 없습니다." wrapText="true">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </TextArea>
-      <Group>
+      <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="550.0">
          <children>
-            <FlowPane disable="true" prefHeight="72.0" prefWidth="576.0">
-               <children>
-                  <Label text="아이디" />
-                  <TextField prefHeight="44.0" prefWidth="425.0">
-                     <FlowPane.margin>
-                        <Insets />
-                     </FlowPane.margin>
-                  </TextField>
-               </children>
-            </FlowPane>
+            <Button fx:id="request" disable="true" mnemonicParsing="false" text="가입 신청">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cancel" mnemonicParsing="false" text="취소">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
          </children>
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
-      </Group>
-      <Group>
-         <children>
-            <FlowPane prefHeight="72.0" prefWidth="521.0">
-               <children>
-                  <Label text="닉네임" />
-                  <TextField prefHeight="44.0" prefWidth="425.0">
-                     <FlowPane.margin>
-                        <Insets />
-                     </FlowPane.margin>
-                  </TextField>
-               </children>
-            </FlowPane>
-         </children>
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
-      </Group>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />

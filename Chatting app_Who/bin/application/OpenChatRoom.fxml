@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OpenChatRoomController">
+<GridPane prefHeight="800.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OpenChatRoomController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -24,31 +23,35 @@
                <children>
                   <MenuBar>
                     <menus>
-                      <Menu mnemonicParsing="false" text="File">
+                      <Menu mnemonicParsing="false" text="사용자">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
+                              <MenuItem fx:id="menuUser" mnemonicParsing="false" text="사용자 정보" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                          <MenuItem fx:id="menuLogout" mnemonicParsing="false" text="로그아웃" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" text="종료" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
+                      <Menu mnemonicParsing="false" text="변경">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
+                          <MenuItem mnemonicParsing="false" text="로그" />
+                              <MenuItem fx:id="menuSetting" mnemonicParsing="false" text="설정" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
+                      <Menu mnemonicParsing="false" text="도움말">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" text="정보" />
                         </items>
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <TextArea disable="true" prefHeight="534.0" prefWidth="400.0">
+                  <TextArea fx:id="chatLog" editable="false" prefHeight="534.0" prefWidth="400.0" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
                      </VBox.margin>
                   </TextArea>
                   <HBox prefHeight="165.0" prefWidth="600.0">
                      <children>
-                        <TextArea prefHeight="150.0" prefWidth="256.0">
+                        <TextArea fx:id="typeMsg" prefHeight="150.0" prefWidth="256.0">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -66,6 +69,6 @@
             </VBox>
          </children>
       </FlowPane>
-      <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+      <ListView fx:id="userList" prefHeight="800.0" prefWidth="148.0" GridPane.columnIndex="1" />
    </children>
 </GridPane>
