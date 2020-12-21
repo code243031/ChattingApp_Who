@@ -1,8 +1,8 @@
 package connectServer;
 
-public class SendMedia extends Sender{
+public class MediaRecieve extends Reciever{
 
-	public SendMedia() {
+	public MediaRecieve() {
 		// TODO Auto-generated constructor stub
 	}
 	

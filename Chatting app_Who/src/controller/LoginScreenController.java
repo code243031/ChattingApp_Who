@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.OpenChatRoom;
+import connectServer.Reciever;
 import connectServer.ServerConnector;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -101,10 +102,10 @@ public class LoginScreenController implements Initializable {
 			}
 			else {
 				if(AccountedUser.isSelected() && con.connectServer("localhost", 5006, id.getText().toString(), pw.getText().toString())) {
-					open = new OpenChatRoom(con, id.getText().toString());
+					open = new OpenChatRoom(con, id.getText().toString(), new Reciever());
 				}
 				else if(guest.isSelected() && con.connectServer("localhost", 5006, id.getText().toString())) {
-					open = new OpenChatRoom(con, id.getText().toString());
+					open = new OpenChatRoom(con, id.getText().toString(), new Reciever());
 				}
 				else {
 					throw new ConnectException();

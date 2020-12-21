@@ -2,8 +2,13 @@ package exceptions;
 
 public class NotUserInformationException extends Exception{
 
-	public NotUserInformationException() {
-		//super.addSuppressed(exception);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -754254556113142051L;
+
+	public NotUserInformationException(Exception e) {
+		super.addSuppressed(e);
 	}
 	
 }

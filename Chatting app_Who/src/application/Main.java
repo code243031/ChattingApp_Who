@@ -1,5 +1,6 @@
 package application;
 	
+import connectServer.ServerConnector;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -7,6 +8,7 @@ import javafx.scene.Parent;
 public class Main extends Application {
 	Parent root;
 	private static Login login;
+	private static ServerConnector serv = new ServerConnector();
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -19,5 +21,9 @@ public class Main extends Application {
 
 	public static Login getLogin() {
 		return login;
+	}
+
+	public static ServerConnector getAcc() {
+		return serv;
 	}
 }

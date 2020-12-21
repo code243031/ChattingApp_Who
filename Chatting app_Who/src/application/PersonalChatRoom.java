@@ -1,9 +1,8 @@
 package application;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,21 +10,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
-public class Login { // 로그인 창 생성
-	
+public class PersonalChatRoom {
+
 	private Parent root;
 	private Stage primaryStage;
-	private Stage accStage;
+	
+	private static ArrayList<String> recv_msgToTarget = new ArrayList<String>();
 
-	public Login(Stage primaryStage) {
+	public PersonalChatRoom(Stage primaryStage, String me) {
 		try {
 			this.primaryStage = primaryStage;
-			this.root = FXMLLoader.load(this.getClass().getResource("LoginScreen.fxml"));
+			this.root = FXMLLoader.load(this.getClass().getResource("PersonalChatRoom.fxml"));
 			Scene scene = new Scene(root);
 			
 			this.primaryStage.setTitle("Who? (ver 0.01)");
@@ -35,13 +33,12 @@ public class Login { // 로그인 창 생성
 				public void handle(WindowEvent evt) {
 					Alert alert = new Alert(AlertType.CONFIRMATION);
 					alert.setTitle("종료?");
-					alert.setHeaderText("프로그램을 종료하시겠습니까?");
-					alert.setContentText("ok를 누르면 종료합니다.");
+					alert.setHeaderText("대화를 마치고 연결을 종료합니까?");
+					alert.setContentText("ok를 누르면 연결을 종료합니다.");
 
 					Optional<ButtonType> result = alert.showAndWait();
 					if (result.get() == ButtonType.OK) {
-						Platform.exit();
-						System.exit(0);
+						getStage().close();
 					}
 					else if (result.get() == ButtonType.CANCEL) {
 						evt.consume();
@@ -58,31 +55,19 @@ public class Login { // 로그인 창 생성
 	public Stage getStage() {
 		return primaryStage;
 	}
-	
-	public void account() {
+
+	public static String getRecv_msgToTarget() {
+		String res = null;
 		try {
-			accStage = new Stage(StageStyle.UTILITY);
-			Parent home = FXMLLoader.load(this.getClass().getResource("Account.fxml"));
-			
-			Scene scene = new Scene(home);
-			
-			accStage.initModality(Modality.WINDOW_MODAL);
-			accStage.initOwner(primaryStage);
-			accStage.setTitle("회원 가입");
-			accStage.setScene(scene);
-			accStage.setResizable(false);
-			accStage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			res = recv_msgToTarget.get(0);
+			recv_msgToTarget.remove(0);
+		} catch (java.lang.IndexOutOfBoundsException e) {
 		}
-	}
-	
-	public Stage getAccountStage() {
-		return accStage;
+		
+		return res;
 	}
 
-	public void loginFailed() {
-		
+	public static void setRecv_msgToTarget(String msg) {
+		recv_msgToTarget.add(msg);
 	}
 }
